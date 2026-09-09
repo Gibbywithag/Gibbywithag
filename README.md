@@ -6,6 +6,10 @@ I ship end-to-end AI products — from model integration to serverless backends 
 mobile apps. By day I produce broadcast/field video for Metro Nashville government; on my
 own I taught myself to build the AI tools that automate that kind of media work.
 
+**Right now:** 15 services running unattended in production on one Mac mini — trading bots moving
+real money, an on-device vision system, media pipelines, and the watchdog that texts me when any
+of them fail. ~137,000 lines across 24 repositories, ~2,150 commits.
+
 🔗 **Portfolio:** https://gilbran-laureano.pages.dev
 💼 **LinkedIn:** https://www.linkedin.com/in/gilbran-laureano-372a29189/
 📫 **Email:** gilbranlaureano0417@gmail.com
@@ -16,6 +20,11 @@ own I taught myself to build the AI tools that automate that kind of media work.
 
 | Project | What it is | Stack |
 |---|---|---|
+| **Overseer** | Text your Mac and Claude Code fixes it. Runs read-only plan mode first, texts back a diagnosis, then waits for explicit approval before changing anything. Two-phase propose/apply, because a text conversation would time out a blocking permission hook. Also watches every launchd job and texts first when one fails | Python · Claude Code SDK · launchd · SQLite |
+| **F1 Clipper** | 26k-line pipeline turning race broadcasts into ready-to-post vertical clips. Moment detection, radio-quote graphics, per-platform captions, and clips split by copyright exposure so safe content goes everywhere. FastAPI service with a job queue driving ffmpeg workers | Python · FastAPI · ffmpeg · Whisper · yt-dlp |
+| **Telegram → MT5 Signal Copier** | Built for an external stakeholder. Mirrors a signals channel onto a live MetaTrader 5 account. The safety rails are the product: dry-run mode, risk-percent sizing, max open trades, daily-loss circuit breaker, and a hard refusal on any signal lacking a stop | Python · Telethon · MetaTrader 5 · MQL5 |
+| **Nursery Vision System** | On-device computer vision. RTSP through go2rtc, a motion gate and 16×16 grayscale signature to reject still frames, then a local vision-language model answers what matters. Frames downscale 2K→640px because the model needs gestalt, not detail. Seven coordinated services, fully offline | Node.js · Qwen2.5-VL · Ollama · go2rtc · ONVIF |
+| **Chef Pal** | iOS app suggesting meals from what is actually in the pantry, with defrost reminders and household sync across two phones. API keys stay server-side behind an edge-function proxy | SwiftUI · SwiftData · Supabase · Claude API |
 | **PageTrail** | Native SwiftUI app **live on the App Store** generating grade-leveled K–12 children's stories via an LLM; StoreKit 2 subscriptions + Cloudflare Workers backend keeping the API key off-device | Swift · SwiftUI · StoreKit 2 · LLM |
 | **[Myla Dashboard](https://github.com/Gibbywithag/family-ops-dashboard)** | Private health dashboard for my daughter. Live Owlet vitals through a Cloudflare Durable Object loop, WebAuthn passkey auth, and honest sensor states (not connected / charging / stale) instead of inventing a number | TypeScript · Next.js · Cloudflare Workers/D1 · Drizzle |
 | **[Prediction Radar](https://github.com/Gibbywithag/prediction-radar)** | Smart-money tracker for Polymarket and Kalshi. Scores whale and exchange signals, alerts via Discord and AI-gated iMessage, and grades its own track record by tracking how every alert resolves | Python · Polymarket · Kalshi · Discord |
