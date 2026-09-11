@@ -1,4 +1,4 @@
-# Hi, I'm Gil 👋
+# Hi, I'm Gilbran 👋
 
 **Software & AI Engineer** — Full-Stack · AI/ML · AI Video & Media Tooling · Nashville, TN
 
